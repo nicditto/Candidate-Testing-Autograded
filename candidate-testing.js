@@ -11,39 +11,59 @@ let candidateAnswer = "";
 
 
 //TODO: Variables for Part 2
-let questions = ["Who was the first American woman in space? ", "True or false: 5 kilometer == 5000 meters? ", "(5 + 3)/2 * 10 = ? ",  "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ", "What is the minimum crew size for the ISS? "];
+let questions = ["Who was the first American woman in space? ",
+ "True or false: 5 kilometer == 5000 meters? ",
+  "(5 + 3)/2 * 10 = ? ", 
+   "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ", 
+   "What is the minimum crew size for the ISS? "];
 let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"]
 let candidateAnswers = []
 
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
-let candidateName = input.question("Please enter your name");
+candidateName = input.question("Please enter your name");
 }
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
- let i = 0
-  while (i < questions.length);{
-  candidateAnswers = input.question(questions[i]);
-  i++;
+ 
+  for (let i = 0; i < questions.length; i++) {
+  let answeredQuestions = input.question(questions[i]);
+  
+  candidateAnswers.push(answeredQuestions);
  }
 
-}
+ }
+
 
 function gradeQuiz(candidateAnswers) {
 
-  // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly update// 
-console.log(`You answered ${candidateAnswers[i]} the correct answer is ${correctAnswers[i]}! `)
+  // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly// 
 
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+  let numCorrect = [];
+  let grade = 0;  //TODO 3.2 use this variable to calculate the candidates score.
+  
 
-
+  
+  for (let i = 0; i < questions.length; i++){
+    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
+      numCorrect.push(candidateAnswers[i]);
+      grade = numCorrect.length / questions.length * 100
+    }
+     
+}
+  if(grade >= 80){
+    console.log("Congratulations You Passed!");
+  } else{
+    console.log("I'm sorry you failed the test.");
+  }
   return grade;
 }
 
 function runProgram() {
+  console.log(questions[0]);
   askForName();
   // TODO 1.1c: Greet candidate using their name //
    console.log(`Hello ${candidateName} !`);
