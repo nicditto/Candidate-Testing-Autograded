@@ -65,7 +65,7 @@ function gradeQuiz(candidateAnswers) {
 function runProgram() {
   console.log(questions[0]);
   askForName();
-  // TODO 1.1c: Greet candidate using their name //
+  // TODO 1.1c: Greet candidate using their name update //
    console.log(`Hello ${candidateName} !`);
   askQuestion();
   gradeQuiz(this.candidateAnswers);
