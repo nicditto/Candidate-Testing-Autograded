@@ -40,7 +40,12 @@ function askQuestion() {
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly// 
-
+console.log(`${candidateName} 
+1) ${questions[0]} you answered: ${candidateAnswers[0]} the correct answer is ${correctAnswers[0]}
+2) ${questions[1]} you answered: ${candidateAnswers[1]} the correct answer is ${correctAnswers[1]}
+3) ${questions[2]} you answered: ${candidateAnswers[2]} the correct answer is ${correctAnswers[2]}
+4) ${questions[3]} you answered: ${candidateAnswers[3]} the correct answer is ${correctAnswers[3]}
+5) ${questions[4]} you answered: ${candidateAnswers[4]} the correct answer is ${correctAnswers[4]}`);
 
   let numCorrect = [];
   let grade = 0;  //TODO 3.2 use this variable to calculate the candidates score.
@@ -52,12 +57,12 @@ function gradeQuiz(candidateAnswers) {
       numCorrect.push(candidateAnswers[i]);
       grade = numCorrect.length / questions.length * 100
     }
-     
+     console.log(`>>> Overall Grade: ${grade}%  ( ${numCorrect.length} of ${questions.length}) responses correct <<<`); 
 }
   if(grade >= 80){
-    console.log("Congratulations You Passed!");
+    console.log(">>> Status: Passed <<<");
   } else{
-    console.log("I'm sorry you failed the test.");
+    console.log(">>> Status: Failed <<<");
   }
   return grade;
 }
